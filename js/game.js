@@ -29,7 +29,7 @@ export const initGame = (onWin) => {
   const startGame = async (cardsNumber) => {
     const gameId = ++currentGameId;
 
-    timer.stop();
+    timer.reset();
     board.replaceChildren();
     playButton.textContent = 'Volver a jugar';
     message.textContent = 'Cargando pokémons...';

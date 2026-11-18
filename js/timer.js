@@ -27,5 +27,11 @@ export const createTimer = (element) => {
     intervalId = setInterval(update, 250);
   };
 
-  return { start, stop };
+  const reset = () => {
+    stop();
+    seconds = 0;
+    element.textContent = formatTime(seconds);
+  };
+
+  return { start, stop, reset };
 };

@@ -32,3 +32,10 @@ export const createUser = async (user) => {
 };
 
 export const updateUser = (id, data) => request(`users/${id}`, 'PATCH', data);
+
+export const getGames = async () => toArray(await request('games'));
+
+export const createGame = async (game) => {
+  const { name } = await request('games', 'POST', game);
+  return name;
+};

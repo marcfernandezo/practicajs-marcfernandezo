@@ -20,7 +20,28 @@
         <p id="user-error" class="error" role="alert"></p>
         <button type="submit">Entrar</button>
       </form>
+
+      <section id="game" hidden>
+        <div class="game-left">
+          <form id="game-form" class="card" novalidate>
+            <label for="cards-number">Número de cartas</label>
+            <input type="text" id="cards-number" name="cards-number" inputmode="numeric" placeholder="Ej: 12" />
+            <button type="submit" id="play-btn">Jugar</button>
+          </form>
+
+          <p id="timer">0m 0s</p>
+          <p id="game-message" role="status"></p>
+          <div id="game-board" hidden></div>
+        </div>
+      </section>
     </main>
+
+    <dialog id="modal">
+      <p id="modal-message"></p>
+      <form method="dialog">
+        <button type="submit" id="modal-close">Cerrar</button>
+      </form>
+    </dialog>
     <script type="module" src="/js/main.js"></script>
   </body>
 </html>

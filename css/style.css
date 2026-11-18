@@ -25,6 +25,14 @@
 }
 
 #game-board .card.matched {
-  background-color: #4caf50;
+  background-color: green;
   border-color: #2e7d32;
+}
+
+#ranking tr.highlight {
+  background-color: yellow;
+}
+
+#ranking tr.ellipsis td {
+  text-align: center;
 }

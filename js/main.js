@@ -1,12 +1,12 @@
 import { SESSION_USER_KEY } from './config.js';
 import { initGame } from './game.js';
+import { addGameToRanking, renderRanking } from './ranking.js';
 import { initRegister } from './register.js';
 
-const handleWin = () => {
-  // Se guardará la partida en el ranking en el siguiente paso
+const showGame = () => {
+  initGame(addGameToRanking);
+  renderRanking();
 };
-
-const showGame = () => initGame(handleWin);
 
 const init = () => {
   if (sessionStorage.getItem(SESSION_USER_KEY)) {

@@ -1,5 +1,2 @@
-allowBuilds:
-  '@firebase/util': false
-  protobufjs: false
 minimumReleaseAgeExclude:
   - vite@8.3.6

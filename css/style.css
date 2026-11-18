@@ -147,7 +147,7 @@ button.secondary:hover {
 /* ===== Layout del juego ===== */
 #game {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(320px, 420px);
+  grid-template-columns: minmax(0, 1fr) minmax(340px, 460px);
   grid-template-areas:
     'header header'
     'left ranking';
@@ -209,11 +209,36 @@ button.secondary:hover {
 
 @media (width <= 900px) {
   #game {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     grid-template-areas:
       'header'
       'left'
       'ranking';
+  }
+}
+
+@media (width <= 480px) {
+  .game-header h1 {
+    font-size: 1.4rem;
+  }
+
+  .card {
+    padding: 16px;
+  }
+
+  #game-board {
+    grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+    gap: 8px;
+    padding: 12px;
+  }
+
+  #ranking table {
+    font-size: 0.8rem;
+  }
+
+  #ranking th,
+  #ranking td {
+    padding: 6px 3px;
   }
 }
 
@@ -332,7 +357,7 @@ button.secondary:hover {
 }
 
 #ranking td:nth-child(3) {
-  word-break: break-all;
+  overflow-wrap: anywhere;
 }
 
 #ranking tbody tr:nth-child(even) {

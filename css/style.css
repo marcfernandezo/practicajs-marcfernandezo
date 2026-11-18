@@ -216,31 +216,89 @@ button.secondary:hover {
       'ranking';
   }
 }
+
+/* ===== Tablero y cartas ===== */
 #game-board {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
-  gap: 10px;
+  gap: 12px;
+  padding: 16px;
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  perspective: 800px;
 }
 
 #game-board .card {
+  position: relative;
+  display: grid;
+  place-items: center;
   aspect-ratio: 3 / 4;
-  border-radius: 8px;
-  background-color: #1d3fa6;
+  border: 3px solid var(--color-primary-dark);
+  border-radius: 10px;
+  background-color: var(--color-primary);
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 80%;
+  background-size: 85%;
   cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+/* Reverso: una pokéball dibujada con degradados */
+#game-board .card::before {
+  content: '';
+  width: 55%;
+  aspect-ratio: 1;
+  border: 3px solid #222;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, #fff 0 16%, #222 16% 26%, transparent 26%),
+    linear-gradient(to bottom, var(--color-accent) 0 45%, #222 45% 55%, #f4f4f4 55%);
+}
+
+#game-board .card:not(.flipped):hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgb(20 44 120 / 25%);
 }
 
 #game-board .card.flipped {
-  background-color: #fff;
-  border: 2px solid #1d3fa6;
+  background-color: var(--color-surface);
+  border-color: var(--color-primary);
   cursor: default;
+  animation: flip 0.35s ease;
+}
+
+#game-board .card.flipped::before {
+  display: none;
 }
 
 #game-board .card.matched {
   background-color: green;
-  border-color: #2e7d32;
+  border-color: #0b5d0b;
+  animation: pop 0.4s ease;
+}
+
+@keyframes flip {
+  from {
+    transform: rotateY(90deg);
+  }
+
+  to {
+    transform: rotateY(0);
+  }
+}
+
+@keyframes pop {
+  50% {
+    transform: scale(1.08);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #game-board .card {
+    transition: none;
+    animation: none !important;
+  }
 }
 
 #ranking tr.highlight {

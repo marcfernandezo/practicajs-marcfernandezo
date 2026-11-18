@@ -8,13 +8,17 @@
     "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint js",
-    "lint:html": "htmlhint index.html"
+    "lint:html": "htmlhint index.html",
+    "test:e2e": "start-server-and-test 'vite --host 127.0.0.1 --port 5173 --strictPort' http://127.0.0.1:5173 'cypress run'",
+    "test:e2e:open": "start-server-and-test 'vite --host 127.0.0.1 --port 5173 --strictPort' http://127.0.0.1:5173 'cypress open --e2e'"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
+    "cypress": "^16.3.0",
     "eslint": "^10.15.0",
     "globals": "^17.14.0",
     "htmlhint": "^1.9.2",
+    "start-server-and-test": "^3.0.13",
     "vite": "^8.3.6"
   }
 }

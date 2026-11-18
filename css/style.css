@@ -301,10 +301,85 @@ button.secondary:hover {
   }
 }
 
-#ranking tr.highlight {
+/* ===== Ranking ===== */
+#ranking h2 {
+  margin-bottom: 12px;
+}
+
+#ranking table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+#ranking th,
+#ranking td {
+  padding: 8px 6px;
+  text-align: left;
+  border-bottom: 1px solid var(--color-border);
+}
+
+#ranking th {
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+#ranking td:first-child {
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+#ranking td:nth-child(3) {
+  word-break: break-all;
+}
+
+#ranking tbody tr:nth-child(even) {
+  background-color: #f6f8fd;
+}
+
+#ranking tbody tr.highlight {
+  font-weight: 700;
   background-color: yellow;
 }
 
-#ranking tr.ellipsis td {
+#ranking tbody tr.ellipsis td {
+  letter-spacing: 0.3em;
   text-align: center;
+  color: var(--color-muted);
+}
+
+#ranking-message {
+  margin: 12px 0 0;
+  color: var(--color-muted);
+}
+
+#ranking-message:empty {
+  display: none;
+}
+
+/* ===== Modal ===== */
+#modal {
+  max-width: 360px;
+  padding: 24px;
+  text-align: center;
+  border: none;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+#modal::backdrop {
+  background: rgb(27 31 42 / 55%);
+  backdrop-filter: blur(2px);
+}
+
+#modal-message {
+  margin: 0 0 16px;
+  font-weight: 600;
+  color: var(--color-error);
+}
+
+#modal form {
+  align-items: center;
 }
